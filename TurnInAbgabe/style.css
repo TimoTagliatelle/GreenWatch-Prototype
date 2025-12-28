@@ -35,6 +35,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
 }
 
 .header-logo {
@@ -45,6 +46,27 @@ header {
 .header-logo img {
   max-width: 500px;
   height: auto;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+  margin-right: 15px;
+}
+
+.search-form input:focus {
+  outline: none;
+  background-color: #e8e8e8;
+  border-color: #999;
 }
 
 /* Navigation als Button-Stil */
@@ -67,6 +89,6 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #044599;
+    color: #044599;
     transform: scale(1.05);
 }
