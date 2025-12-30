@@ -14,7 +14,7 @@ body {
 h1 {
     /* Tag Selector */
     color: #033a71;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 h2 {
     /* Tag Selector */
@@ -22,13 +22,14 @@ h2 {
     margin-bottom: 15px;
 }
 table {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto 20px auto;
     border: 5px solid #033a71;
     border-collapse: separate;
     border-spacing: 0 10px;
-    border-color: #ff0707;
+    border-color: #000000;
     padding: 25px;
-    margin-bottom: 20px;
+    text-align: left;
 }
 header {
   display: flex;
@@ -91,4 +92,8 @@ nav a {
 nav a:hover {
     color: #044599;
     transform: scale(1.05);
+}
+
+main {
+    margin-top: 20px;
 }
