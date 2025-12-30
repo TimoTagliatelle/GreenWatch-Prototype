@@ -97,3 +97,37 @@ nav a:hover {
 main {
     margin-top: 20px;
 }
+
+/* Footer zentrieren */
+footer {
+  margin-top: 30px;
+}
+
+footer nav ul {
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Sortier-Icons für Tabellenköpfe */
+th[data-sortable="true"]{
+  position: relative;
+  padding-right: 28px;
+}
+th[data-sortable="true"]::after{
+  content: '\25B4'; /* small up-triangle as default (not visible if no order) */
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+}
+th[data-order="asc"]::after{
+  content: '\25B2'; /* up arrow */
+  opacity: 1;
+}
+th[data-order="desc"]::after{
+  content: '\25BC'; /* down arrow */
+  opacity: 1;
+}
+

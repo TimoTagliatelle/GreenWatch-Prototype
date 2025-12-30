@@ -4,6 +4,7 @@
     <title>GREEN WATCH - CO2-Emission Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
      <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head> 
   <body> 
   <header>
@@ -36,12 +37,15 @@
   </p>
   <h2> Unsere Leistung</h2>
   <p> Wir beraten bei der Erstellung von Homepages, konzipieren und implementieren Websites </p>
-      <table>
+      <label for="table-filter">Tabelle filtern:</label>
+      <input id="table-filter" type="text" placeholder="Nach Land oder Jahr filtern..." style="margin:8px 0 16px 0; padding:6px; width:60%; max-width:320px;">
+      <div class="table-wrapper">
+      <table id="co2-table">
   <thead>
     <tr>
-      <th>Country</th>
-      <th>2022</th>
-      <th>2023</th>  
+      <th data-sortable="true">Country</th>
+      <th data-sortable="true">2022</th>
+      <th data-sortable="true">2023</th>  
     </tr>
   </thead>
   <tbody>
@@ -74,24 +78,74 @@
       <td>Italien</td>
       <td>318 Mio. Tonnen CO2</td>
       <td>318 Mio. Tonnen CO2</td>
-          <tr>
-      <td>Frankreich</td>
-      <td>270 Mio. Tonnen CO2</td>
-      <td>270 Mio. Tonnen CO2</td>  
-    </tr> 
-    </tr>
+        </tr>
+        <tr>
+          <td>Frankreich</td>
+          <td>270 Mio. Tonnen CO2</td>
+          <td>270 Mio. Tonnen CO2</td>  
+        </tr>
   </tbody>
 </table>
   </div>
       </div>
     </main>
     <footer>
-      <nav>
+      <nav id="footer">
         <ul>
           <li><a href="privacy.html">Datenschutz</a></li>
           <li><a href="imprint.html">Impressum</a></li>
         </ul>
       </nav>
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const table = document.getElementById('co2-table');
+        const tbody = table.tBodies[0];
+        const filterInput = document.getElementById('table-filter');
+
+        // Filter rows
+        filterInput.addEventListener('input', function(){
+          const q = this.value.trim().toLowerCase();
+          Array.from(tbody.rows).forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(q) ? '' : 'none';
+          });
+        });
+
+        // Helper to parse numeric values like "4.854 Mio. Tonnen CO2"
+        function parseCellValue(text){
+          if(!text) return '';
+          const cleaned = text.replace(/[^0-9,\.\-]/g,'').trim();
+          if(!cleaned) return text.toLowerCase();
+          const asNumber = parseFloat(cleaned.replace(/\./g,'').replace(/,/g, '.'));
+          return isNaN(asNumber) ? text.toLowerCase() : asNumber;
+        }
+
+        // Sort when clicking on sortable headers
+        Array.from(table.querySelectorAll('th')).forEach((th, index) => {
+          if(th.dataset.sortable === 'true'){
+            th.style.cursor = 'pointer';
+            th.addEventListener('click', function(){
+              const currentOrder = th.dataset.order === 'asc' ? 'desc' : 'asc';
+              Array.from(table.querySelectorAll('th')).forEach(h => h.removeAttribute('data-order'));
+              th.dataset.order = currentOrder;
+
+              const rows = Array.from(tbody.rows).filter(r => r.style.display !== 'none');
+              rows.sort((a,b) => {
+                const aVal = parseCellValue(a.cells[index].textContent);
+                const bVal = parseCellValue(b.cells[index].textContent);
+                if(typeof aVal === 'number' && typeof bVal === 'number'){
+                  return currentOrder === 'asc' ? aVal - bVal : bVal - aVal;
+                }
+                return currentOrder === 'asc' ? String(aVal).localeCompare(String(bVal)) : String(bVal).localeCompare(String(aVal));
+              });
+
+              // Re-append in sorted order
+              rows.forEach(r => tbody.appendChild(r));
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
