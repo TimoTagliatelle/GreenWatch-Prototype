@@ -5,12 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const filter = document.getElementById('table-filter');
 
   // simple filter
-  filter.addEventListener('input', () => {
-    const q = filter.value.toLowerCase();
-    for (const row of tbody.rows) {
-      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
-    }
-  });
+  if (filter) {
+    filter.addEventListener('input', () => {
+      const q = filter.value.toLowerCase();
+      for (const row of tbody.rows) {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+      }
+    });
+  }
 
   // try to get numeric value, otherwise return string
   const valueOf = cell => {
