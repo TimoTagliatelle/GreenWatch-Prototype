@@ -175,7 +175,7 @@ th[data-order="desc"]::after{
     padding: 10px;
   }
   .header-logo img {
-    max-width: 120px;
+    max-width: 200px;
   }
   nav a {
     padding: 6px 10px;
