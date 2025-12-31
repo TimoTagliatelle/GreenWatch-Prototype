@@ -112,32 +112,33 @@ footer {
   margin-top: 30px;
 }
 
-footer nav ul {
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul {
   justify-content: center;
   gap: 20px;
 }
 
-.language-switcher {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+#footer-nav {
+  padding: 10px
+  text-align:center;
+  flex-grow: 1;
 }
 
-.language-switcher button {
+button {
+  padding: 10px 20px;
   background-color: #479F31;
   color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
-  transition: 0.3s;
   cursor: pointer;
-}
+  transition: background-color 0.3s, transform 0.3s;
 
-.language-switcher button:hover {
-  color: #044599;
-  transform: scale(1.05);
 }
-
 /* Responsive Wrapper für Tabelle */
 .table-wrapper {
   overflow-x: auto;

@@ -40,20 +40,6 @@
         document.documentElement.setAttribute('dir', 'ltr');
       };
     </script>
-  <!-- Sprachumschalter Button -->
-    <div class ="language-switcher">
-      <button onclick="setLang('de')">LTR</button>
-      <button onclick="setLang('ar')">RTL</button>
-      <script>
-        function setLang(lang) {
-          if (lang === 'ar') {
-            document.documentElement.setAttribute('dir', 'rtl');
-          } else {
-            document.documentElement.setAttribute('dir', 'ltr');
-          }
-        }
-      </script>
-    </div>
   </header>
     <main>
       <div id="body" class="row">
@@ -94,12 +80,28 @@
   </div>
     </main>
     <footer>
-      <nav id="footer">
+      <div class="footer-container">
+        <button class="ltr-btn" onclick="setLang('de')">LTR</button>
+      <nav id="footer-nav">
         <ul>
-          <li><a href="privacy.html">Datenschutz</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
           <li><a href="imprint.html">Impressum</a></li>
         </ul>
       </nav>
+        <button class="rtl-btn" onclick="setLang('ar')">RTL</button>  
+       
+        <!-- Sprachumschalter Button Script -->
+        <script>
+          function setLang(lang) {
+            if (lang === 'ar') {
+             document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+              document.documentElement.setAttribute('dir', 'ltr');
+            }
+          }
+      </script>
+    </div>
+    </div>
     </footer>
   </body>
 </html>
