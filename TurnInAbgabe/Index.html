@@ -30,6 +30,30 @@
         </ul>
       </nav>
     </div>  
+  <!-- LeseRichtung nach Sprache -->
+    <script>
+      const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+      const userLang = navigator.language.split('-')[0];
+      if (rtlLanguages.includes(userLang)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      };
+    </script>
+  <!-- Sprachumschalter Button -->
+    <div class ="language-switcher">
+      <button onclick="setLang('de')">LTR</button>
+      <button onclick="setLang('ar')">RTL</button>
+      <script>
+        function setLang(lang) {
+          if (lang === 'ar') {
+            document.documentElement.setAttribute('dir', 'rtl');
+          } else {
+            document.documentElement.setAttribute('dir', 'ltr');
+          }
+        }
+      </script>
+    </div>
   </header>
     <main>
       <div id="body" class="row">
@@ -77,6 +101,5 @@
         </ul>
       </nav>
     </footer>
-    
   </body>
 </html>
