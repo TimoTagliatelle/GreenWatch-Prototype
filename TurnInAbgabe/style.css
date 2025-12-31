@@ -124,13 +124,13 @@ footer ul {
 }
 
 #footer-nav {
-  padding: 10px
-  text-align:center;
+  padding: 10px;
+  text-align: center;
   flex-grow: 1;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: #479F31;
   color: white;
   border: none;
@@ -165,9 +165,6 @@ button {
   .search-form input {
     width: 140px;
   }
-  .language-switcher button {
-    padding: 8px 14px;
-    font-size: 13px;
   }
   table {
     width: 100%;
@@ -178,7 +175,7 @@ button {
   #table-filter {
     width: 90% !important;
   }
-}
+
 
 /* Media Query: Smartphones */
 @media (max-width: 480px) {
@@ -194,10 +191,6 @@ button {
   }
   nav ul {
     gap: 6px;
-  }
-  .language-switcher button {
-    padding: 6px 10px;
-    font-size: 12px;
   }
   table {
     padding: 8px;
