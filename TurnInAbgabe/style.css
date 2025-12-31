@@ -137,8 +137,12 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-
 }
+button:hover {
+  background-color: #044599;
+  transform: scale(1.05);
+}
+
 /* Responsive Wrapper für Tabelle */
 .table-wrapper {
   overflow-x: auto;
@@ -175,6 +179,10 @@ button {
   #table-filter {
     width: 90% !important;
   }
+  button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
 
 
 /* Media Query: Smartphones */
@@ -200,7 +208,11 @@ button {
   th, td {
     padding: 6px 4px;
   }
+ button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }
   
-}
+
 
