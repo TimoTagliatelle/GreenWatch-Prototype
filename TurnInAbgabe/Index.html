@@ -35,8 +35,8 @@
       const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
       const userLang = navigator.language.split('-')[0];
       if (rtlLanguages.includes(userLang)) {
-        document.documentElement.setAttribute('dir', 'rtl');
-        else {
+        document.documentElement.setAttribute('dir', 'rtl');}
+      else {
         document.documentElement.setAttribute('dir', 'ltr');
       };
     </script>
@@ -45,7 +45,7 @@
       <div id="body" class="row">
       </div>
   <div id="content" class="col-lg-12 col-sm-12">
-    <h1>Your CO2 Emission Tracker</h1>
+    <h1>Your Car-Industry CO2-Emission Tracker</h1>
   <p>
     Wir konzipieren und implementieren fantastische Web-Applikationen!
   </p>
@@ -58,21 +58,26 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       const tableData = [
-        {Country:"USA", "2022":4854, "2023":4680},
-        {Country:"Japan", "2022":1083, "2023":1080},
-        {Country:"Kanada", "2022":520, "2023":520},
-        {Country:"Deutschland", "2022":635, "2023":940},
-        {Country:"United Kingdom", "2022":345, "2023":345},
-        {Country:"Italien", "2022":318, "2023":318},
-        {Country:"Frankreich", "2022":270, "2023":270},
+        {Country:"USA", Company: "Tesla", "2022":4854, "2023":4680},
+        {Country:"Japan", Company: "Toyota", "2022":1083, "2023":1080},
+        {Country:"Kanada", Company: "General Motors", "2022":520, "2023":520},
+        {Country:"Deutschland", Company: "BMW", "2022":635, "2023":940},
+        {Country:"United Kingdom", Company: "Triumph", "2022":345, "2023":345},
+        {Country:"Italien", Company: "Fiat Chrysler", "2022":318, "2023":318},
+        {Country:"Frankreich", Company: "Renault", "2022":270, "2023":270},
       ];
       new Tabulator("#co2-table", {
         data: tableData,
         layout: "fitColumns",
+        placeholder: "Keine Daten verfügbar",
         columns: [
           {title: "Country", field: "Country", sorter: "string", headerFilter: "input"},
-          {title: "CO2 Emission 2022 (in Mio. Tonnen)", field: "2022", sorter: "number", headerFilter: true},
-          {title: "CO2 Emission 2023 (in Mio. Tonnen)", field: "2023", sorter: "number", headerFilter: true},
+          {title: "Company", field: "Company", sorter: "string", headerFilter: "input"},
+          {title: "CO2 Emission 2022 (in Mio. Tons)", field: "2022", sorter: "number", headerFilter: true},
+          {title: "CO2 Emission 2023 (in Mio. Tons)", field: "2023", sorter: "number", headerFilter: true},
+        ],
+        initialSort:[
+          {column:"Country", dir:"asc"},
         ],
       });
     });
@@ -85,7 +90,7 @@
       <nav id="footer-nav">
         <ul>
           <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="imprint.html">Impressum</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
         </ul>
       </nav>
         <button class="rtl-btn" onclick="setLang('ar')">Right2Left</button>  
