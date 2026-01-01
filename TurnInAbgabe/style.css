@@ -144,6 +144,11 @@ button:hover {
   transform: scale(1.05);
 }
 
+.rtl-btn.active,
+.ltr-btn.active {
+  color: #044599;
+}
+
 /* Responsive Wrapper für Tabelle */
 .table-wrapper {
   overflow-x: auto;
@@ -212,6 +217,6 @@ button:hover {
     font-size: 12px;
   }
 }
-  
+
 
 
