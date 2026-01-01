@@ -116,6 +116,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: auto;
 }
 
 footer ul {
@@ -142,11 +143,6 @@ button {
 button:hover {
   background-color: #044599;
   transform: scale(1.05);
-}
-
-.rtl-btn.active,
-.ltr-btn.active {
-  color: #044599;
 }
 
 /* Responsive Wrapper für Tabelle */
