@@ -44,31 +44,10 @@ header {
   height: auto;
 }
 
-.header-searchnav {
+.header-nav{
   display: flex; 
-  align-items: center; 
-  gap: 15px;
-}
-
-.search-form {
-  display: flex;
-  align-items: center;
-}
-
-.search-form input {
-  padding: 8px 12px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  width: 200px;
-  margin-right: 15px;
-}
-
-.search-form input:focus {
-  outline: none;
-  background-color: #e8e8e8;
-  border-color: #999;
+  justify-content: center;
+  align-items: center;  
 }
 
 /* Navigation als Button-Stil */
@@ -154,9 +133,6 @@ button:hover {
   nav a {
     padding: 8px 14px;
     font-size: 13px;
-  }
-  .search-form input {
-    width: 140px;
   }
   table {
     width: 100%;
