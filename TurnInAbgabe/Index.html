@@ -12,18 +12,19 @@
      <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
   </head>
   <body> 
-  <header>
-    <div class="header-logo">
-        <img src="GreenWatch Logo1.png" alt="Green Watch Logo">
+  <header class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-auto header-logo">
+        <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
     </div>
-    <div class="header-searchnav">
+    <div class="col header-searchnav">
       <div class="search-form">
         <form>
           <input type="text" name="suche" placeholder="Search">
         </form>
       </div>
       <nav>
-        <ul class="text-end">
+        <ul class="d-flex align-items-center gap-3">
           <li><a href="vision.html">Our Vision</a></li>
           <li><a href="tracking.html">Our Tracking</a></li>
           <li><a href="funding.html">Our Funding</a></li>
@@ -83,7 +84,7 @@
   </script>
   </div>
     </main>
-    <footer>
+    <footer class="container mt-4">
       <div class="footer-container">
        <nav id="footer-nav">
         <ul>
@@ -91,7 +92,7 @@
           <li><a href="imprint.html">Imprint</a></li>
         </ul>
       </nav>  
-      <button id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
+      <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
         <script>
           function toggleDir() {
             const html = document.documentElement;
