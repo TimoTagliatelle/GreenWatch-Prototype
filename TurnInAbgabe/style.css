@@ -95,14 +95,6 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-html[dir="ltr"].nav {
-  left: 0;
-}
-
-html[dir="rtl"].nav {
-  right: 0;
-}
-
 main {
     margin-top: 20px;
 }
@@ -171,19 +163,17 @@ button:hover {
   .search-form input {
     width: 140px;
   }
-  }
   table {
     width: 100%;
     padding: 12px;
     border-width: 3px;
     font-size: 14px;
   }
-
   button {
     padding: 8px 14px;
     font-size: 13px;
   }
-
+}
 
 /* Media Query: Smartphones */
 @media (max-width: 480px) {
