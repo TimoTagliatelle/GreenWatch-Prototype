@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta name="description" content="Independent CO₂ emission tracking of global car manufacturers">
+    <!-- Responsives Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GREEN WATCH - CO2-Emission Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+  </head> 
+  <body> 
+  <header class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-auto header-logo">
+        <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
+    </div>
+    <div class="col header-searchnav">
+      <div class="search-form">
+        <form>
+          <input type="text" name="suche" placeholder="Search">
+        </form>
+      </div>
+      <nav>
+        <ul class="d-flex align-items-center gap-3">
+          <li><a href="vision.html">Our Vision</a></li>
+          <li><a href="tracking.html">Our Tracking</a></li>
+          <li><a href="funding.html">Our Funding</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>  
+  <!-- LeseRichtung nach Sprache -->
+    <script>
+      const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+      const userLang = navigator.language.split('-')[0];
+      if (rtlLanguages.includes(userLang)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      };
+    </script>
+  </header>
+    <main>
+      <div class="container my-4">
+        <div class="row align-items-center" >
+         <div class="col-md-8">
+          <h1>Our vision is a transparent and accountable automotive industry.</h1>
+          <p> We believe that reliable CO₂ data must be accessible, comparable, and independently verified to enable informed decisions by consumers, policymakers, and investors.</p>
+          <p> The automotive industry plays a key role in global greenhouse gas emissions.
+              However, emission data is often fragmented, inconsistent, or difficult to compare.
+              GREEN WATCH was founded to close this gap by providing a standardized, independent CO₂ monitoring platform.</p>
+          <h2> What makes GREEN WATCH different:</h2>
+            <ul> #Independent data aggregation without industry funding </ul>
+            <ul> #Transparent methodologies and open documentation </ul>
+            <ul> #Clear year-to-year comparisons across manufacturers </ul>
+            <ul> #Focus on long-term accountability rather than marketing claims </ul>
+         </div>
+         <div class="col-md-4 text-end">
+          <img src="https://static.esmartcity.es/media/2021/04/ley-clima-europea.png" alt="Climatechange" class="img-fluid" >
+        </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container mt-4">
+      <div class="footer-container">
+       <nav id="footer-nav">
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+        </ul>
+      </nav>  
+      <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
+        <script>
+          function toggleDir() {
+            const html = document.documentElement;
+            const btn = document.getElementById("toggle-dir-btn");
+
+            // wenn aktuelle Richtung RTL ist → zurück zu LTR
+            if (html.getAttribute("dir") === "rtl") {
+              html.setAttribute("dir", "ltr");
+              btn.textContent = "RTL";      // Button soll anbieten wieder RTL zu machen
+            } 
+            else {
+              html.setAttribute("dir", "rtl");
+              btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
+            }
+          }
+        </script>     
+    </div>
+    </footer>
+  </body>
+</html>
