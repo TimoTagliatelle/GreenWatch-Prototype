@@ -7,15 +7,12 @@
     <title>GREEN WATCH - CO2-Emission Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
      <link rel="stylesheet" href="style.css">
-     <!-- Tabulator Framework Einbundung -->
-     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
-     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
-  </head>
+  </head> 
   <body> 
   <header class="container-fluid">
     <div class="row align-items-center">
       <div class="col-auto header-logo">
-        <a href="index.html">
+                <a href="index.html">
         <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
         </a>
     </div>
@@ -46,45 +43,26 @@
     </script>
   </header>
     <main>
-  <div id="content">
-    <h1>Your Car-Industry CO₂-Emission Tracker</h1>
-  <p>
-    We report the yearly CO₂ emissions of the biggest car manufacturers worldwide. Compare the data of 2022 and 2023 and see which companies have reduced their emissions and which have increased them.
-  </p>
-  <h2> Our Independent Analysis </h2>
-  <p> All Data are sourced from reputable industry reports and verified databases. Our funding is transparent, unbiased and openly documented.</p>
-      <div class="table-wrapper">
-        <div id="co2-table"></div>
+      <div class="container my-4">
+        <div class="row align-items-center" >
+         <div class="col-md-8">
+          <h2>Our Tracking</h2>
+          <p>GREEN WATCH tracks CO₂ emissions across the global automotive industry to provide clear, comparable, and reliable data. Our platform enables you to:</p>
+          <ul>
+            <li>🔍 <strong>Compare manufacturers:</strong> See year-to-year CO₂ performance for all major car brands.</li>
+            <li>📊 <strong>Visualize trends:</strong> Track emission reductions and improvements over time.</li>
+            <li>🛠️ <strong>Access verified data:</strong> All figures are independently aggregated and validated.</li>
+            <li>🌱 <strong>Support accountability:</strong> Hold the automotive industry responsible for environmental impact.</li>
+            <li>📈 <strong>Based on official reports:</strong> Data is sourced from publicly available regulatory filings and sustainability reports.</li>
+            <li>💡 <strong>Enhanced with third-party research:</strong> We combine verified independent studies and market analyses to ensure completeness and accuracy.</li>
+          </ul>
+          <p>By making CO₂ data transparent and accessible, GREEN WATCH empowers consumers, policymakers, and investors to make informed, environmentally conscious decisions.</p>  
+                  </div>
+         <div class="col-md-4 text-end">
+          <img src="https://static.esmartcity.es/media/2021/04/ley-clima-europea.png" alt="Climatechange" class="img-fluid" >
+        </div>
+        </div>
       </div>
-  <!-- Tabulator.js Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      const tableData = [
-        {Country:"USA", Company: "Tesla", "2022":4854, "2023":4680},
-        {Country:"Japan", Company: "Toyota", "2022":1083, "2023":1080},
-        {Country:"Kanada", Company: "General Motors", "2022":520, "2023":520},
-        {Country:"Deutschland", Company: "BMW", "2022":635, "2023":940},
-        {Country:"United Kingdom", Company: "Triumph", "2022":345, "2023":345},
-        {Country:"Italien", Company: "Fiat Chrysler", "2022":318, "2023":318},
-        {Country:"Frankreich", Company: "Renault", "2022":270, "2023":270},
-      ];
-      new Tabulator("#co2-table", {
-        data: tableData,
-        layout: "fitColumns",
-        placeholder: "Keine Daten verfügbar",
-        columns: [
-          {title: "Country", field: "Country", sorter: "string", headerFilter: "input"},
-          {title: "Company", field: "Company", sorter: "string", headerFilter: "input"},
-          {title: "CO₂ Emission 2022 (in Mio. Tons)", field: "2022", sorter: "number", headerFilter: true},
-          {title: "CO₂Emission 2023 (in Mio. Tons)", field: "2023", sorter: "number", headerFilter: true},
-        ],
-        initialSort:[
-          {column:"Country", dir:"asc"},
-        ],
-      });
-    });
-  </script>
-  </div>
     </main>
     <footer class="container mt-4">
       <div class="footer-container">
