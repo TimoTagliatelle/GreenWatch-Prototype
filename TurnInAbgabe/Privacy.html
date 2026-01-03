@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta name="description" content="Independent CO₂ emission tracking of global car manufacturers">
+    <!-- Responsives Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GREEN WATCH - CO2-Emission Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+  </head> 
+  <body> 
+  <header class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-auto header-logo">
+                <a href="index.html">
+        <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
+        </a>
+    </div>
+    <div class="col header-searchnav">
+      <div class="search-form">
+        <form>
+          <input type="text" name="suche" placeholder="Search">
+        </form>
+      </div>
+      <nav>
+        <ul class="d-flex align-items-center gap-3">
+          <li><a href="vision.html">Our Vision</a></li>
+          <li><a href="tracking.html">Our Tracking</a></li>
+          <li><a href="funding.html">Our Funding</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>  
+  <!-- LeseRichtung nach Sprache -->
+    <script>
+      const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+      const userLang = navigator.language.split('-')[0];
+      if (rtlLanguages.includes(userLang)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      };
+    </script>
+  </header>
+    <main>
+      <div class="container my-4">
+        <div class="row align-items-center" >
+         <div class="col-md-8">
+          <h2>Privacy</h2>
+          <p>At GREEN WATCH, your privacy is important to us. We are committed to protecting the personal information of our visitors and users.</p>
+          <ul>
+            <li>🔒 <strong>No selling of data:</strong> We do not sell, trade, or share personal information with third parties.</li>
+            <li>📊 <strong>Anonymous usage data:</strong> We may collect non-identifiable information such as page visits, clicks, and device type to improve our platform.</li>
+            <li>🍪 <strong>Cookies and tracking:</strong> Minimal cookies are used solely to enhance user experience. No third-party advertising tracking is employed.</li>
+            <li>💡 <strong>Transparency:</strong> All data practices are clearly explained, and you can request deletion of your personal data at any time.</li>
+            <li>🌐 <strong>Secure storage:</strong> Any data we collect is securely stored and handled in accordance with applicable privacy regulations.</li>
+          </ul>
+          <p>For detailed information, please read our full <span id="privacyLink" style="color:#4CAF50; text-decoration:underline; cursor:pointer;">Privacy Policy</span>.</p>
+        </div>
+        <!-- PopUp Privacy Policy Content-->
+        <div id="privacyPopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border:1px solid #ccc; border-radius:8px; min-width:300px; max-width:700px; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000; font-size: 14px; max-height:80%; overflow:auto;">
+          <span id="closePopup" style="float:right; cursor:pointer; font-weight:bold;">&times;</span>
+          <h1>Privacy Policy</h1>
+            <p>Effective date: January 2026</p>
+            <p>GREEN WATCH operates the GREEN WATCH platform, providing transparent and independent CO₂ monitoring of the automotive industry. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or use our services.</p>
+            <p><strong>1. Information We Collect</strong></p>
+            <ul>
+              <li>📧 <strong>Contact information:</strong> If you voluntarily contact us via email or forms, we may collect your name and email address.</li>
+              <li>🌐 <strong>Usage data:</strong> We automatically collect non-identifiable information such as IP address, browser type, pages visited, and click activity to improve our services.</li>
+              <li>🍪 <strong>Cookies and similar technologies:</strong> We use minimal cookies to enhance user experience, remember preferences, and analyze site traffic. No third-party advertising cookies are used.</li>
+            </ul>
+            <p><strong>2. How We Use Your Information</strong></p>
+            <ul>
+              <li>To respond to inquiries and provide support.</li>
+              <li>To improve and optimize our website and services.</li>
+              <li>To monitor website performance and understand usage trends.</li>
+            </ul>
+            <p><strong>3. Data Sharing and Disclosure</strong></p>
+            <ul>
+              <li>We do <strong>not</strong> sell, trade, or share your personal information with commercial third parties.</li>
+              <li>We may share aggregated or anonymized data for research, reporting, or public interest purposes.</li>
+              <li>We may disclose information if required by law or to protect our legal rights.</li>
+            </ul>
+            <p><strong>4. Data Security</strong></p>
+            <p>We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. While we strive to protect your data, no method of transmission over the internet is 100% secure.</p>
+            <p><strong>5. Your Rights</strong></p>
+            <ul>
+              <li>You can request access to, correction, or deletion of your personal information by contacting us at <a href="mailto:info@greenwatch.org">info@greenwatch.org</a>.</li>
+              <li>You can manage or disable cookies through your browser settings, though this may affect some website functionality.</li>
+            </ul>
+            <p><strong>6. International Data Transfer</strong></p>
+            <p>As GREEN WATCH collaborates with international NGOs and UN initiatives, data may be processed or stored in countries outside your residence. We ensure that such transfers comply with applicable privacy regulations and safeguard your data.</p>
+            <p><strong>7. Third-Party Links</strong></p>
+            <p>Our website may contain links to external sites. We are not responsible for the privacy practices of these third-party websites. We encourage you to read their privacy policies.</p>
+            <p><strong>8. Changes to This Privacy Policy</strong></p>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. We encourage you to review this page periodically.</p>
+            <p><strong>9. Contact Us</strong></p>
+            <p>If you have questions or concerns about this Privacy Policy or how we handle your data, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:info@greenwatch.org">info@greenwatch.org</a></p>
+            <p><strong>Address:</strong> GREEN WATCH, [Sesamstreet 123, Duckcity 12345, Germany]</p>
+        </div>
+        <!-- PopUp Script -->
+        <script>
+          const popup = document.getElementById('privacyPopup');
+          const link = document.getElementById('privacyLink');
+          const close = document.getElementById('closePopup');
+          link.onclick = () => popup.style.display = 'block';
+          close.onclick = () => popup.style.display = 'none';
+          window.onclick = (e) => { if(e.target == popup) popup.style.display = 'none'; };
+        </script>
+
+         <div class="col-md-4 text-end">
+          <img src="https://cdn-icons-png.freepik.com/512/7065/7065006.png" alt="Climatechange" class="img-fluid" >
+        </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container mt-4">
+      <div class="footer-container">
+       <nav id="footer-nav">
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+        </ul>
+      </nav>  
+      <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
+        <script>
+          function toggleDir() {
+            const html = document.documentElement;
+            const btn = document.getElementById("toggle-dir-btn");
+
+            // wenn aktuelle Richtung RTL ist → zurück zu LTR
+            if (html.getAttribute("dir") === "rtl") {
+              html.setAttribute("dir", "ltr");
+              btn.textContent = "RTL";      // Button soll anbieten wieder RTL zu machen
+            } 
+            else {
+              html.setAttribute("dir", "rtl");
+              btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
+            }
+          }
+        </script>     
+    </div>
+    </footer>
+  </body>
+</html>
