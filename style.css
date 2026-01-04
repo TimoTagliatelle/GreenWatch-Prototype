@@ -154,8 +154,11 @@ button:hover {
   body {
     padding: 10px;
   }
+
   .header-logo img {
     max-width: 200px; /* noch kleiner auf Smartphones */
+    width: auto;
+    height: auto;
   }
   nav a {
     padding: 6px 10px;
