@@ -12,10 +12,10 @@
      <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
   </head>
   <body> 
-    <header class="container-fluid" id="page-header">
+  <header class="container-fluid" id="page-header">
     <div class="row flex-column flex-md-row align-items-center">
       <div class="col-auto header-logo">
-                <a href="index.html">
+               <a href="index.html">
         <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
         </a>
     </div>
@@ -37,59 +37,57 @@
           header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
         </script>
   </header>
-    <main>
-  <div id="content">
-    <h1>Your Car-Industry CO₂-Emission Tracker</h1>
-  <p> We report the yearly CO₂-Emissions of the biggest car manufacturers worldwide. Compare the data of 2022 and 2023 and see which companies have reduced their emissions and which have increased them.
-  </p>
-  <h2> Our Independent Analysis </h2>
-  <p>All Data are sourced from reputable industry reports and verified databases. Our funding is transparent, unbiased and openly documented.
-  </p>
+  <main>
+    <div id="content">
+      <h1>Your Car-Industry CO₂-Emission Tracker</h1>
+         <p> We report the yearly CO₂-Emissions of the biggest car manufacturers worldwide. Compare the data of 2022 and 2023 and see which companies have reduced their emissions and which have increased them.</p>
+      <h2> Our Independent Analysis </h2>
+         <p>All Data are sourced from reputable industry reports and verified databases. Our funding is transparent, unbiased and openly documented.</p>
       <div class="table-wrapper">
         <div id="co2-table"></div>
       </div>
-  <!-- Tabulator.js Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      const tableData = [
-        {Country:"USA", Company: "Tesla", "2022":4854, "2023":4680},
-        {Country:"Japan", Company: "Toyota", "2022":1083, "2023":1080},
-        {Country:"Kanada", Company: "General Motors", "2022":520, "2023":520},
-        {Country:"Deutschland", Company: "BMW", "2022":635, "2023":940},
-        {Country:"United Kingdom", Company: "Triumph", "2022":345, "2023":345},
-        {Country:"Italien", Company: "Fiat Chrysler", "2022":318, "2023":318},
-        {Country:"Frankreich", Company: "Renault", "2022":270, "2023":270},
-      ];
-      new Tabulator("#co2-table", {
-        data: tableData,
-        layout: "fitColumns",
-        placeholder: "Keine Daten verfügbar",
-        columns: [
-          {title: "Country", field: "Country", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
-            // rowValue als Text escapen, um XSS zu verhindern
-            const div = document.createElement("div");
-            div.textContent = rowValue;        // HTML-Tags werden escaped
-            const safeRowValue = div.textContent.toLowerCase();
-            return safeRowValue.includes(headerValue.toLowerCase());
-          }},
-          {title: "Company", field: "Company", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
-            const div = document.createElement("div");
-            div.textContent = rowValue;
-            const safeRowValue = div.textContent.toLowerCase();
-            return safeRowValue.includes(headerValue.toLowerCase());
-          }},
-          {title: "CO₂ Emission 2022 (in Mio. Tons)", field: "2022", sorter: "number", headerFilter: true},
-          {title: "CO₂Emission 2023 (in Mio. Tons)", field: "2023", sorter: "number", headerFilter: true},
-        ],
-        initialSort:[
-          {column:"Country", dir:"asc"},
-        ],
-      });
-    });
-  </script>
-  </div>
-    </main>
-    <footer class="container mt-4">
+      <!-- Tabulator.js Script -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function(){
+          const tableData = [
+            {Country:"USA", Company: "Tesla", "2022":4854, "2023":4680},
+            {Country:"Japan", Company: "Toyota", "2022":1083, "2023":1080},
+            {Country:"Kanada", Company: "General Motors", "2022":520, "2023":520},
+            {Country:"Deutschland", Company: "BMW", "2022":635, "2023":940},
+            {Country:"United Kingdom", Company: "Triumph", "2022":345, "2023":345},
+            {Country:"Italien", Company: "Fiat Chrysler", "2022":318, "2023":318},
+            {Country:"Frankreich", Company: "Renault", "2022":270, "2023":270},
+          ];
+          new Tabulator("#co2-table", {
+            data: tableData,
+            layout: "fitColumns",
+            placeholder: "Keine Daten verfügbar",
+            columns: [
+              {title: "Country", field: "Country", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
+                // rowValue als Text escapen, um XSS zu verhindern
+                const div = document.createElement("div");
+                div.textContent = rowValue;        // HTML-Tags werden escaped
+                const safeRowValue = div.textContent.toLowerCase();
+                return safeRowValue.includes(headerValue.toLowerCase());
+              }},
+              {title: "Company", field: "Company", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
+                const div = document.createElement("div");
+                div.textContent = rowValue;
+                const safeRowValue = div.textContent.toLowerCase();
+                return safeRowValue.includes(headerValue.toLowerCase());
+              }},
+              {title: "CO₂ Emission 2022 (in Mio. Tons)", field: "2022", sorter: "number", headerFilter: true},
+              {title: "CO₂Emission 2023 (in Mio. Tons)", field: "2023", sorter: "number", headerFilter: true},
+            ],
+            initialSort:[
+              {column:"Country", dir:"asc"},
+              ],
+            });
+          });
+      </script>
+    </div>
+  </main>
+  <footer class="container mt-4">
       <div class="footer-container">
        <nav id="footer-nav">
         <ul>
@@ -110,10 +108,10 @@
             else {
               header.setAttribute("dir", "rtl");
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
+            }
           }
-        }
         </script>     
     </div>
-    </footer>
+  </footer>
   </body>
 </html>

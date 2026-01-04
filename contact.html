@@ -31,7 +31,6 @@
           const header = document.getElementById("page-header");
           const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
           const userLang = navigator.language.split('-')[0];
-          // dir nur für Header setzen
           header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
         </script>
   </header>

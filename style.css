@@ -4,19 +4,16 @@
     font-family: Arial, sans-serif;
 }
 body {
-    /* Tag Selector */
     background-color: #ffffffae;
     color: #333;
     line-height: 1.6;
     padding: 20px;
 }
 h1 {
-    /* Tag Selector */
     color: #033a71;
     margin-bottom: 10px;
 }
 h2 {
-    /* Tag Selector */
     color: #470499;
     margin-bottom: 15px;
 }
@@ -77,7 +74,6 @@ main {
     margin-top: 20px;
 }
 
-/* Footer zentrieren */
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -126,7 +122,7 @@ button:hover {
     gap: 10px;
   }
   .header-logo img {
-    max-width: 300px; /* kleiner auf Tablets */
+    max-width: 300px; 
   }
   nav ul {
     justify-content: center;
@@ -156,7 +152,7 @@ button:hover {
   }
 
   .header-logo img {
-    max-width: 200px; /* noch kleiner auf Smartphones */
+    max-width: 200px; 
     width: auto;
     height: auto;
   }
