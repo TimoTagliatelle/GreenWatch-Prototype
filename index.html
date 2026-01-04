@@ -65,8 +65,19 @@
         layout: "fitColumns",
         placeholder: "Keine Daten verfügbar",
         columns: [
-          {title: "Country", field: "Country", sorter: "string", headerFilter: "input"},
-          {title: "Company", field: "Company", sorter: "string", headerFilter: "input"},
+          {title: "Country", field: "Country", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
+            // rowValue als Text escapen, um XSS zu verhindern
+            const div = document.createElement("div");
+            div.textContent = rowValue;        // HTML-Tags werden escaped
+            const safeRowValue = div.textContent.toLowerCase();
+            return safeRowValue.includes(headerValue.toLowerCase());
+          }},
+          {title: "Company", field: "Company", sorter: "string", headerFilter: "input", headerFilterFunc: function(headerValue, rowValue){
+            const div = document.createElement("div");
+            div.textContent = rowValue;
+            const safeRowValue = div.textContent.toLowerCase();
+            return safeRowValue.includes(headerValue.toLowerCase());
+          }},
           {title: "CO₂ Emission 2022 (in Mio. Tons)", field: "2022", sorter: "number", headerFilter: true},
           {title: "CO₂Emission 2023 (in Mio. Tons)", field: "2023", sorter: "number", headerFilter: true},
         ],
