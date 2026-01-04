@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta name="description" content="Independent CO₂ emission tracking of global car manufacturers">
     <!-- Responsives Design -->
@@ -9,7 +9,7 @@
      <link rel="stylesheet" href="style.css">
   </head> 
   <body> 
-  <header class="container-fluid">
+  <header class="container-fluid" id="page-header">
     <div class="row align-items-center">
       <div class="col-auto header-logo">
                 <a href="index.html">
@@ -27,24 +27,21 @@
       </nav>
     </div>  
   <!-- LeseRichtung nach Sprache -->
-    <script>
-      const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
-      const userLang = navigator.language.split('-')[0];
-      if (rtlLanguages.includes(userLang)) {
-        document.documentElement.setAttribute('dir', 'rtl');
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-      };
-    </script>
+       <script>
+          const header = document.getElementById("page-header");
+          const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+          const userLang = navigator.language.split('-')[0];
+          header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
+        </script>
   </header>
     <main>
       <div class="container my-4">
         <div class="row align-items-center" >
          <div class="col-md-8">
           <h2>Privacy</h2>
-          <p>At GREEN WATCH, your privacy is important to us. We are committed to protecting the personal information of our visitors and users.</p>
+          <p> At GREEN WATCH, your privacy is important to us. We are committed to protecting the personal information of our visitors and users. </p>
           <ul>
-            <li>🔒 <strong>No selling of data:</strong> We do not sell, trade, or share personal information with third parties.</li>
+            <li>🔒 <strong>No selling of data:</strong> We do not sell, trade, or share personal information with third parties.</span></li>
             <li>📊 <strong>Anonymous usage data:</strong> We may collect non-identifiable information such as page visits, clicks, and device type to improve our platform.</li>
             <li>🍪 <strong>Cookies and tracking:</strong> Minimal cookies are used solely to enhance user experience. No third-party advertising tracking is employed.</li>
             <li>💡 <strong>Transparency:</strong> All data practices are clearly explained, and you can request deletion of your personal data at any time.</li>
@@ -121,20 +118,19 @@
       <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
         <script>
           function toggleDir() {
-            const html = document.documentElement;
+            const header = document.getElementById("page-header");
             const btn = document.getElementById("toggle-dir-btn");
-
             // wenn aktuelle Richtung RTL ist → zurück zu LTR
-            if (html.getAttribute("dir") === "rtl") {
-              html.setAttribute("dir", "ltr");
+            if (header.getAttribute("dir") === "rtl") {
+              header.setAttribute("dir", "ltr");
               btn.textContent = "RTL";      // Button soll anbieten wieder RTL zu machen
             } 
             else {
-              html.setAttribute("dir", "rtl");
+              header.setAttribute("dir", "rtl");
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
             }
-          }
-        </script>     
+            }
+        </script>    
     </div>
     </footer>
   </body>

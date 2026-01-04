@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta name="description" content="Independent CO₂ emission tracking of global car manufacturers">
     <!-- Responsives Design -->
@@ -9,7 +9,7 @@
      <link rel="stylesheet" href="style.css">
   </head> 
   <body> 
-  <header class="container-fluid">
+  <header class="container-fluid" id="page-header">
     <div class="row align-items-center">
       <div class="col-auto header-logo">
                 <a href="index.html">
@@ -27,15 +27,13 @@
       </nav>
     </div>  
   <!-- LeseRichtung nach Sprache -->
-    <script>
-      const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
-      const userLang = navigator.language.split('-')[0];
-      if (rtlLanguages.includes(userLang)) {
-        document.documentElement.setAttribute('dir', 'rtl');
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-      };
-    </script>
+       <script>
+          const header = document.getElementById("page-header");
+          const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+          const userLang = navigator.language.split('-')[0];
+          // dir nur für Header setzen
+          header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
+        </script>
   </header>
     <main>
       <div class="container my-4">
@@ -73,19 +71,18 @@
       <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
         <script>
           function toggleDir() {
-            const html = document.documentElement;
+            const header = document.getElementById("page-header");
             const btn = document.getElementById("toggle-dir-btn");
-
             // wenn aktuelle Richtung RTL ist → zurück zu LTR
-            if (html.getAttribute("dir") === "rtl") {
-              html.setAttribute("dir", "ltr");
+            if (header.getAttribute("dir") === "rtl") {
+              header.setAttribute("dir", "ltr");
               btn.textContent = "RTL";      // Button soll anbieten wieder RTL zu machen
             } 
             else {
-              html.setAttribute("dir", "rtl");
+              header.setAttribute("dir", "rtl");
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
             }
-          }
+            }
         </script>     
     </div>
     </footer>
