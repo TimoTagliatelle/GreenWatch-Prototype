@@ -31,6 +31,7 @@
           const header = document.getElementById("page-header");
           const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
           const userLang = navigator.language.split('-')[0];
+          // dir nur für Header setzen
           header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
         </script>
   </header>
@@ -38,17 +39,23 @@
       <div class="container my-4">
         <div class="row align-items-center" >
          <div class="col-md-8">
-          <h2>Our Funding</h2>
-            <p>GREEN WATCH operates with full financial transparency. Our work is supported by the United Nations, leading international NGOs, and other public-interest organizations. We do not accept funding from the automotive industry, ensuring our independence and credibility.</p>
+          <h2>Contact</h2>
+            <p>We’d love to hear from you! Whether you’re a consumer, policymaker, researcher, or journalist, you can reach out to us for inquiries, collaboration, or feedback.</p>
             <ul>
-              <li>🌐 <strong>International support:</strong> Backed by UN initiatives and globally recognized environmental NGOs.</li>
-              <li>💼 <strong>Transparent finances:</strong> All funding sources and expenditures are publicly documented and freely accessible.</li>
-              <li>🔒 <strong>Independent research:</strong> Our independence from industry funding guarantees unbiased CO₂ monitoring and reporting.</li>
+              <li>📧 <strong>Email:</strong> <a href="mailto:info@greenwatch.org">info@greenwatch.org</a></li>
+              <li>🌐 <strong>Website feedback:</strong> Submit suggestions or report issues through our <a href="mailto:website@greenwatch.org">website@greenwatch.org</a></li>
+              <li>🤝 <strong>Partnerships:</strong> If you represent an NGO, government body, or research institution, contact us for collaboration <a href="mailto:info@greenwatch.org">info@greenwatch.org</a></li>
+              <li>📢 <strong>Media inquiries:</strong> Press and media contacts can email <a href="mailto:press@greenwatch.org">press@greenwatch.org</a>.</li>
             </ul>
-            <p>By relying on trusted, public-interest funding, GREEN WATCH can focus solely on providing accurate, reliable, and actionable CO₂ data to consumers, policymakers, and investors worldwide.</p>
+            <p>Follow us on social media to stay updated on CO₂ monitoring and industry insights:</p>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
         </div>
          <div class="col-md-4 text-end">
-          <img src="https://www.cape.ac.uk/wp-content/uploads/2022/09/Applying-for-collaboration-funding.png" alt="Climatechange" class="img-fluid" >
+          <img src="https://www.contact-software.com/fileadmin/_processed_/5/0/csm_Kontaktseite_Header_54fb087bd6.png" alt="Climatechange" class="img-fluid" >
         </div>
         </div>
       </div>
@@ -62,7 +69,7 @@
         </ul>
       </nav>  
       <button class="my-costum-btn px-3 py-2" id="toggle-dir-btn" onclick="toggleDir()">RTL</button>
-               <script>
+        <script>
           function toggleDir() {
             const header = document.getElementById("page-header");
             const btn = document.getElementById("toggle-dir-btn");
@@ -76,7 +83,7 @@
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
             }
             }
-        </script>    
+        </script>     
     </div>
     </footer>
   </body>

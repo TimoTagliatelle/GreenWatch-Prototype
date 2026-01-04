@@ -12,8 +12,8 @@
   <header class="container-fluid" id="page-header">
     <div class="row align-items-center">
       <div class="col-auto header-logo">
-        <a href="index.html">
-          <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
+                <a href="index.html">
+        <img class="img-fluid" src="GreenWatch Logo1.png" alt="Green Watch Logo">
         </a>
     </div>
     <div class="col header-searchnav">
@@ -27,50 +27,31 @@
       </nav>
     </div>  
   <!-- LeseRichtung nach Sprache -->
-         <script>
+       <script>
           const header = document.getElementById("page-header");
           const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
           const userLang = navigator.language.split('-')[0];
-          // dir nur für Header setzen
           header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
         </script>
   </header>
     <main>
       <div class="container my-4">
         <div class="row align-items-center" >
-         <div class="col-md-12">
-          <h1>Imprint</h1>
-          <p><strong>GREEN WATCH</strong></p>
-          <p>
-            GreenWatch e.V<br>
-            Sesamstreet 123<br>
-            12345 Duckcity<br>
-            Germany
-          </p>
-          <h2>Contact</h2>
-          <p>
-            Phone: 123456789<br>
-            Email: <a href="mailto:info@greenwatch.org">info@greenwatch.org</a><br>
-            Website: <a href="https://www.greenwatch.org">www.greenwatch.org</a>
-          </p>
-          <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
-          <p>
-            Donald Duck<br>
-            Sesamstreet 123, 12345 Duckcity
-          </p>
-          <h2>Commercial register / company registration</h2>
-          <p>
-            Company registration number: 12345<br>
-            Register court: Duckcity
-          </p>
-          <h2>VAT / Tax ID</h2>
-          <p>
-            VAT identification number: 100 200 300 505
-          </p>
-          <h2>Disclaimer</h2>
-          <p>
-            All information provided on this website has been carefully researched and compiled. However, we do not assume any liability for the accuracy, completeness, or timeliness of the information. GREEN WATCH is not responsible for the content of external links.
-          </p>
+         <div class="col-md-8">
+          <h2>Our Tracking</h2>
+          <p>GREEN WATCH tracks CO₂ emissions across the global automotive industry to provide clear, comparable, and reliable data. Our platform enables you to:</p>
+          <ul>
+            <li>🔍 <strong>Compare manufacturers:</strong> See year-to-year CO₂ performance for all major car brands.</li>
+            <li>📊 <strong>Visualize trends:</strong> Track emission reductions and improvements over time.</li>
+            <li>🛠️ <strong>Access verified data:</strong> All figures are independently aggregated and validated.</li>
+            <li>🌱 <strong>Support accountability:</strong> Hold the automotive industry responsible for environmental impact.</li>
+            <li>📈 <strong>Based on official reports:</strong> Data is sourced from publicly available regulatory filings and sustainability reports.</li>
+            <li>💡 <strong>Enhanced with third-party research:</strong> We combine verified independent studies and market analyses to ensure completeness and accuracy.</li>
+          </ul>
+          <p>By making CO₂ data transparent and accessible, GREEN WATCH empowers consumers, policymakers, and investors to make informed, environmentally conscious decisions.</p>  
+                  </div>
+         <div class="col-md-4 text-end">
+          <img src="https://blog.lewagon.com/wp-content/uploads/2023/03/636a27da26aa84a1b7b12c02_campaign-tracking-web-ready-1.png" alt="Climatechange" class="img-fluid" >
         </div>
         </div>
       </div>
@@ -96,9 +77,9 @@
             else {
               header.setAttribute("dir", "rtl");
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
-          }
-        }
-        </script>    
+            }
+            }
+        </script>     
     </div>
     </footer>
   </body>

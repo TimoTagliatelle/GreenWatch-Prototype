@@ -27,30 +27,50 @@
       </nav>
     </div>  
   <!-- LeseRichtung nach Sprache -->
-       <script>
+         <script>
           const header = document.getElementById("page-header");
           const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
           const userLang = navigator.language.split('-')[0];
+          // dir nur für Header setzen
           header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
         </script>
   </header>
     <main>
       <div class="container my-4">
         <div class="row align-items-center" >
-         <div class="col-md-8">
-          <h1>Our vision is a transparent and accountable automotive industry.</h1>
-          <p> We believe that reliable CO₂ data must be accessible, comparable, and independently verified to enable informed decisions by consumers, policymakers, and investors.</p>
-          <p> The automotive industry plays a key role in global greenhouse gas emissions.
-              However, emission data is often fragmented, inconsistent, or difficult to compare.
-              GREEN WATCH was founded to close this gap by providing a standardized, independent CO₂ monitoring platform.</p>
-          <h2> What makes GREEN WATCH different:</h2>
-            <ul> #Independent data aggregation without industry funding </ul>
-            <ul> #Transparent methodologies and open documentation </ul>
-            <ul> #Clear year-to-year comparisons across manufacturers </ul>
-            <ul> #Focus on long-term accountability rather than marketing claims </ul>
-         </div>
-         <div class="col-md-4 text-end">
-          <img src="https://shopequo.com/cdn/shop/articles/What_Is_Climate_Change_Causes_Impact_on_Humans_and_Animals.png?v=1698979509&width=1600" alt="Climatechange" class="img-fluid" >
+         <div class="col-md-12">
+          <h1>Imprint</h1>
+          <p><strong>GREEN WATCH</strong></p>
+          <p>
+            GreenWatch e.V<br>
+            Sesamstreet 123<br>
+            12345 Duckcity<br>
+            Germany
+          </p>
+          <h2>Contact</h2>
+          <p>
+            Phone: 123456789<br>
+            Email: <a href="mailto:info@greenwatch.org">info@greenwatch.org</a><br>
+            Website: <a href="https://www.greenwatch.org">www.greenwatch.org</a>
+          </p>
+          <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
+          <p>
+            Donald Duck<br>
+            Sesamstreet 123, 12345 Duckcity
+          </p>
+          <h2>Commercial register / company registration</h2>
+          <p>
+            Company registration number: 12345<br>
+            Register court: Duckcity
+          </p>
+          <h2>VAT / Tax ID</h2>
+          <p>
+            VAT identification number: 100 200 300 505
+          </p>
+          <h2>Disclaimer</h2>
+          <p>
+            All information provided on this website has been carefully researched and compiled. However, we do not assume any liability for the accuracy, completeness, or timeliness of the information. GREEN WATCH is not responsible for the content of external links.
+          </p>
         </div>
         </div>
       </div>
@@ -76,9 +96,9 @@
             else {
               header.setAttribute("dir", "rtl");
               btn.textContent = "LTR";      // Button soll anbieten wieder LTR zu machen
-            }
-            }
-        </script>     
+          }
+        }
+        </script>    
     </div>
     </footer>
   </body>
