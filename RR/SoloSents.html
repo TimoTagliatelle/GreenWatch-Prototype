@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="RookieRecords - Friends Doing Climbin Stuff Together">
+    <!-- Responsives Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RookieRecords</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+  </head>
+  <body> 
+  <header> 
+    <div class="header-logo">
+      <a href="index.html">
+        <img class="img-fluid" src="Logo3.png" alt="RR Logo">
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul class="d-flex align-items-center gap-5">
+          <li><a href="SoloSents.html"class="active">SoloSents</a></li>
+          <li><a href="CrewTapes.html">CrewTapes</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+        </ul>
+      </nav>    
+    </header>
+  <main class="main-container">
+   <div id="filter-container" class="filter-container">
+      <select id="filter-person">
+        <option value="">All Climbers</option>
+      </select>
+      <select id="filter-sector">
+       <option value="">All Sectors</option>
+      </select>
+     <select id="filter-year">
+       <option value="">All Years</option>
+      </select>
+      <select id="filter-grade">
+       <option value="">All Grades</option>
+      </select>
+    </div>
+    <!-- Video Grid-->
+    <div id="video-grid" class="video-grid"></div>
+
+    <!-- JavaScript to load and filter videos -->
+    <script>
+    fetch('videos.json')
+      .then(response => response.json())
+      .then(videos => {
+      fillFilters(videos);
+      addFilterListeners(videos);
+      renderVideos(videos);
+     });
+
+    // 1️⃣ Filter automatisch befüllen
+  function fillFilters(videos) {
+    const personSelect = document.getElementById("filter-person");
+    const sectorSelect = document.getElementById("filter-sector");
+    const yearSelect = document.getElementById("filter-year");
+    const gradeSelect = document.getElementById("filter-grade");
+
+  const unique = (arr) => [...new Set(arr)];
+
+    unique(videos.map(v => v.person)).sort((a,b,) => a.localeCompare(b)).forEach(p => {
+    const option = document.createElement("option");
+    option.value = p;
+    option.textContent = p;
+    personSelect.appendChild(option);
+  });
+
+    unique(videos.map(v => v.sector)).sort((a,b,) => a.localeCompare(b)).forEach(s => {
+      const option = document.createElement("option");
+      option.value = s;
+      option.textContent = s;
+      sectorSelect.appendChild(option);
+    });
+
+
+    unique(videos.map(v => v.year)).sort((a, b) => b - a).forEach(y => {
+      const option = document.createElement("option");
+      option.value = y;
+      option.textContent = y;
+      yearSelect.appendChild(option);
+    });
+
+
+    unique(videos.map(v => v.grade)).sort((a, b) => a.localeCompare(b)).forEach(g => {
+      const option = document.createElement("option");
+      option.value = g;
+      option.textContent = g;
+      gradeSelect.appendChild(option);
+    });
+    }
+
+// 2️⃣ Event-Listener für Filter
+  function addFilterListeners(videos) {
+    const filters = ['person', 'sector', 'year', 'grade'];
+
+    filters.forEach(f => {
+      const select = document.getElementById(`filter-${f}`);
+      select.addEventListener('change', () => {
+        const filterObj = {
+          person: document.getElementById("filter-person").value,
+          sector: document.getElementById("filter-sector").value,
+          year: document.getElementById("filter-year").value,
+          grade: document.getElementById("filter-grade").value
+        };
+        renderVideos(videos, filterObj);
+      });
+    });
+  }
+
+    function renderVideos(videos, filter = {}) {
+     const grid = document.getElementById("video-grid");
+      grid.innerHTML = "";
+      const filtered = videos.filter(video => {
+        return (!filter.person || video.person === filter.person) &&
+                (!filter.sector || video.sector === filter.sector) && 
+               (!filter.year || video.year == filter.year) &&
+               (!filter.grade || video.grade === filter.grade);
+     });
+
+    filtered.forEach(video => {
+    //Container Video+Infos
+      const container = document.createElement("div");
+      container.classList.add("video-item");
+      
+    // Thumbnail statt direktem Video
+    const thumbnail = document.createElement("img");
+    thumbnail.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+    thumbnail.classList.add("video-thumb");
+
+    // Play-Button Overlay
+    const playButton = document.createElement("div");
+    playButton.classList.add("play-button");
+    playButton.innerHTML = "▶";
+
+    // Wrapper
+    const videoWrapper = document.createElement("div");
+    videoWrapper.classList.add("video-container");
+
+    videoWrapper.appendChild(thumbnail);
+    videoWrapper.appendChild(playButton);
+
+    // Klick → Video laden
+    videoWrapper.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
+    iframe.frameBorder = "0";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    videoWrapper.innerHTML = "";
+    videoWrapper.appendChild(iframe);
+  });  
+
+    //Info-Box rechts
+      const info = document.createElement("div");
+      info.classList.add("video-info");
+      info.innerHTML = `
+        <strong> Route: ${video.title}</strong><br>
+        Person: ${video.person}<br>
+        Year: ${video.year}<br>
+        Sector: ${video.sector}<br>
+        Grade: ${video.grade} `;
+
+      container.appendChild(videoWrapper);;
+      container.appendChild(info);
+      grid.appendChild(container);
+    });}
+  </script> 
+  </main>
+  </body>
+</html>

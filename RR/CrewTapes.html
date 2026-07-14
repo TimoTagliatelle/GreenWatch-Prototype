@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="RookieRecords - Friends Doing Climbin Stuff Together" name="description"/>
+<!-- Responsives Design -->
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>RookieRecords</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&amp;display=swap" rel="stylesheet"/>
+<style>
+      /* ---------------------------------------------------
+         CrewTapes-specific styles. Alles unter .tapes-page
+         genestet, damit es nicht mit style.css kollidiert.
+         Jahres-Optik (year-block/year-label/year-sub) ist
+         bewusst identisch zu Gallery.html gehalten.
+      --------------------------------------------------- */
+      .tapes-page {
+        padding: 40px 0 80px;
+      }
+
+      .year-block {
+        margin-bottom: 96px;
+      }
+
+      .year-label {
+        font-family: "Bagel Fat One", cursive;
+        color: #E4AB30;
+        font-size: clamp(28px, 4vw, 44px);
+        text-align: center;
+        margin: 0 0 8px;
+        letter-spacing: 1px;
+      }
+
+      .year-sub {
+        text-align: center;
+        color: #7a7a7a;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 36px;
+      }
+
+      .videos-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        max-width: 1550px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .video-item {
+        width: min(720px, 92vw);
+        flex: 0 0 auto;
+      }
+
+      /* YouTube liefert je nach Video leicht unterschiedliche
+         Thumbnail-Formate (4:3 vs. 16:9) aus. Damit alle Kacheln
+         gleich gross wirken, wird hier ein einheitliches
+         16:9-Format erzwungen und das Bild passend zugeschnitten. */
+      .tapes-page .video-container {
+        position: relative;
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+
+      .tapes-page .video-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Titel (Kalender/Saison) und Ort teilen sich dieselbe
+         Pill-Optik, damit sie sauber in einer Reihe sitzen -
+         kein <p>-Absatz mehr, der einen Umbruch erzwingt. */
+      .video-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .video-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin: 0;
+        padding: 4px 12px;
+        border: 1px solid #E4AB30;
+        border-radius: 999px;
+        color: #E4AB30;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .video-date {
+        background: rgba(228, 171, 48, 0.1);
+      }
+
+      .video-people {
+        flex-basis: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.4;
+        background: transparent;
+        border-color: rgba(228, 171, 48, 0.5);
+        color: #a8894a;
+        font-size: 12.5px;
+      }
+
+      @media (max-width: 700px) {
+        .video-item { width: 100%; max-width: 500px; }
+        .video-tag { font-size: 12px; }
+      }
+    </style>
+</head>
+<body>
+<header>
+<div class="header-logo">
+<a href="index.html">
+<img alt="RR Logo" class="img-fluid" src="Logo3.png"/>
+</a>
+</div>
+<div>
+<nav class="header-nav">
+<ul class="d-flex align-items-center gap-5">
+<li><a href="SoloSents.html">SoloSents</a></li>
+<li><a class="active" href="CrewTapes.html">CrewTapes</a></li>
+<li><a href="Gallery.html">Gallery</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="tapes-page">
+<div class="year-block">
+<h2 class="year-label">2024</h2>
+<p class="year-sub">1 video</p>
+<div class="videos-row">
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/op-BrRO9oKA" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/op-BrRO9oKA/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Fountainebleau</span>
+<span class="video-tag video-people">🧗 Ivo Gigi, Dr.T, Lasse, Eva, Lisa, Matthias, Timo</span>
+</div>
+</div>
+
+</div>
+</div>
+<div class="year-block">
+<h2 class="year-label">2023</h2>
+<p class="year-sub">3 videos</p>
+<div class="videos-row">
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/76dWbrKfC18" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/76dWbrKfC18/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Autumn</span>
+<span class="video-tag video-location">📍 Fountainebleau</span>
+<span class="video-tag video-people">🧗 Ivo, Gigi, Dr.T, Lisa, Matthias, Timo & Friends</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/lsFBZnuiWro" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/lsFBZnuiWro/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Summer</span>
+<span class="video-tag video-location">📍 Fountainebleau</span>
+<span class="video-tag video-people">🧗 Ivo, Gigi, Dr.T, Nils Lisa, Matthias, Timo & Friends</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/-sGsqO6n8C4" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/-sGsqO6n8C4/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Odenwald</span>
+<span class="video-tag video-people">🧗 Lasse, Eva, Gigi, Dr.T, Timo</span>
+</div>
+</div>
+
+</div>
+</div>
+<div class="year-block">
+<h2 class="year-label">2022</h2>
+<p class="year-sub">7 videos</p>
+<div class="videos-row">
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/sotydgqYpOU" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/sotydgqYpOU/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Autumn</span>
+<span class="video-tag video-location">📍 Fountainebleau</span>
+<span class="video-tag video-people">🧗 Lasse, Eva, Gigi, Timo, Lisa, Matthias, Moritz</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/hl8Shp4fsx8" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/hl8Shp4fsx8/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Autumn</span>
+<span class="video-tag video-location">📍 Fountainebleau</span>
+<span class="video-tag video-people">🧗 Lasse, Eva, Gigi, Timo, Lisa, Matthias, Moritz</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/niM_BSQh1Uk" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/niM_BSQh1Uk/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Summer</span>
+<span class="video-tag video-location">📍 Normandie & Bretagne</span>
+<span class="video-tag video-people">🧗 Gigi, Timo</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/EZ4MVN4U9Hg" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/EZ4MVN4U9Hg/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Ruhrtal</span>
+<span class="video-tag video-people">🧗 Eva, Gigi, Dr.T, Timo</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/vAhs9Xgm7Sc" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/vAhs9Xgm7Sc/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Harz</span>
+<span class="video-tag video-people">🧗 Ivo, Gigi, Timo</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/Y-8WUsGOuVc" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/Y-8WUsGOuVc/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Odenwald</span>
+<span class="video-tag video-people">🧗 Lasse, Eva, Gigi, Timo</span>
+</div>
+</div>
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/RDCdITXBMD8" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/RDCdITXBMD8/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Ruhrtal & Eifel</span>
+<span class="video-tag video-people">🧗 Lasse, Timo, Eva, Dr. T, & Friends</span>
+</div>
+</div>
+
+</div>
+</div>
+<div class="year-block">
+<h2 class="year-label">2021</h2>
+<p class="year-sub">1 video</p>
+<div class="videos-row">
+
+<div class="video-item">
+<a class="video-container" href="https://youtu.be/sHCCWAv3rTA" rel="noopener" target="_blank">
+<img alt="Video Thumbnail" src="https://img.youtube.com/vi/sHCCWAv3rTA/hqdefault.jpg"/>
+<span class="play-button">▶</span>
+</a>
+<div class="video-info">
+<span class="video-tag video-date">📅 Spring</span>
+<span class="video-tag video-location">📍 Hohenfels</span>
+<span class="video-tag video-people">🧗 Lasse, Eva, Timo</span>
+</div>
+</div>
+
+</div>
+</div>
+</main>
+</body>
+</html>
