@@ -193,10 +193,51 @@
         opacity: 0.8;
       }
 
+      /* Fallback-Fix fuers Nav-Menue (SoloSents / CrewTapes / Gallery),
+         falls style.css noch nicht mit demselben Fix aktualisiert wurde.
+         Bootstrap generiert .gap-5 mit !important, daher muss hier
+         ebenfalls !important gesetzt werden. */
+      @media (max-width: 768px) {
+        .header-nav ul.d-flex {
+          gap: 14px !important;
+          row-gap: 8px !important;
+          flex-wrap: wrap !important;
+        }
+      }
+
       @media (max-width: 700px) {
-        .wheel { height: 220px; }
+        .wheel { height: 220px; overflow: hidden; }
         .wheel-item { width: 150px; height: 150px; }
-        .wheel-arrow { font-size: 22px; padding: 4px 6px; }
+
+        /* Pfeile werden auf Mobile nicht mehr relativ zum aeussersten
+           (kleinsten) Bild positioniert - das schoss frueher weit ueber
+           den sichtbaren Bereich hinaus. Stattdessen sitzen sie fest
+           am linken/rechten Rand des Wheels und bleiben so immer ohne
+           Scrollen erreichbar. */
+        .wheel-arrow {
+          font-size: 26px;
+          padding: 6px 9px;
+          background: rgba(0, 0, 0, 0.4);
+          border-radius: 50%;
+        }
+        .wheel-arrow-prev {
+          left: 4px;
+          transform: translateY(-50%);
+        }
+        .wheel-arrow-next {
+          left: auto;
+          right: 4px;
+          transform: translateY(-50%);
+        }
+        .wheel-arrow-prev:hover,
+        .wheel-arrow-prev:active {
+          transform: translateY(-50%) scale(1.12);
+        }
+        .wheel-arrow-next:hover,
+        .wheel-arrow-next:active {
+          transform: translateY(-50%) scale(1.12);
+        }
+
         .lightbox-stage { gap: 8px; }
         .lightbox-nav { font-size: 30px; padding: 4px 6px; }
       }
@@ -361,7 +402,7 @@
 
       // Layout-Werte fuer die Wheel-Positionen relativ zur Mitte (index-Abstand)
       // offset 0 = Zentrum, +-1, +-2 = Nachbarn
-      const WHEEL_LAYOUT = {
+      const WHEEL_LAYOUT_DESKTOP = {
         0: { x: 0,    scale: 1,   opacity: 1,    z: 5 },
         1: { x: 190,  scale: 0.62, opacity: 0.55, z: 4 },
         "-1": { x: -190, scale: 0.62, opacity: 0.55, z: 4 },
@@ -369,12 +410,80 @@
         "-2": { x: -320, scale: 0.4, opacity: 0.25, z: 3 }
       };
 
-      // Abstand der Pfeile von der Mitte = Position des Randbilds (Offset 2)
-      // plus dessen halbe (skalierte) Breite plus etwas Luft.
-      const OUTER = WHEEL_LAYOUT[2];
+      // Kompaktere Positionen fuer schmale Bildschirme, damit die
+      // aeusseren Bilder nicht mehr ueber den sichtbaren Bereich
+      // hinausragen (das Wheel bekommt dort zusaetzlich overflow:hidden).
+      const WHEEL_LAYOUT_MOBILE = {
+        0: { x: 0,    scale: 1,    opacity: 1,    z: 5 },
+        1: { x: 95,   scale: 0.55, opacity: 0.5,  z: 4 },
+        "-1": { x: -95, scale: 0.55, opacity: 0.5, z: 4 },
+        2: { x: 150,  scale: 0.3,  opacity: 0.15, z: 3 },
+        "-2": { x: -150, scale: 0.3, opacity: 0.15, z: 3 }
+      };
+
+      const mobileMedia = window.matchMedia("(max-width: 700px)");
+      function getCurrentLayout() {
+        return mobileMedia.matches ? WHEEL_LAYOUT_MOBILE : WHEEL_LAYOUT_DESKTOP;
+      }
+
+      // Abstand der Pfeile von der Mitte (nur fuer Desktop relevant -
+      // auf Mobile werden die Pfeile per CSS fest an den Rand gesetzt).
+      const OUTER = WHEEL_LAYOUT_DESKTOP[2];
       const ITEM_BASE_WIDTH = 220;
       const ARROW_GAP = 22;
       const ARROW_OFFSET = OUTER.x + (ITEM_BASE_WIDTH * OUTER.scale) / 2 + ARROW_GAP;
+
+      // Sammelt die render()-Funktionen aller Jahres-Wheels, damit beim
+      // Wechsel zwischen Mobile-/Desktop-Layout alle neu gezeichnet werden.
+      const allWheelRenders = [];
+
+      /* ---------- Touch-Swipe fuer Wheel & Lightbox ---------- */
+      function attachSwipe(el, onSwipeLeft, onSwipeRight) {
+        let startX = 0;
+        let startY = 0;
+        let deltaX = 0;
+        let deltaY = 0;
+        let tracking = false;
+        let didSwipe = false;
+        const THRESHOLD = 40;
+
+        el.addEventListener("touchstart", (e) => {
+          const t = e.touches[0];
+          startX = t.clientX;
+          startY = t.clientY;
+          deltaX = 0;
+          deltaY = 0;
+          tracking = true;
+          didSwipe = false;
+        }, { passive: true });
+
+        el.addEventListener("touchmove", (e) => {
+          if (!tracking) return;
+          const t = e.touches[0];
+          deltaX = t.clientX - startX;
+          deltaY = t.clientY - startY;
+        }, { passive: true });
+
+        el.addEventListener("touchend", () => {
+          if (!tracking) return;
+          tracking = false;
+          if (Math.abs(deltaX) > THRESHOLD && Math.abs(deltaX) > Math.abs(deltaY)) {
+            didSwipe = true;
+            if (deltaX < 0) onSwipeLeft(); else onSwipeRight();
+          }
+        });
+
+        // Verhindert, dass ein Swipe zusaetzlich als Klick auf ein
+        // Bild gewertet wird (sonst wuerde z.B. die Lightbox ungewollt
+        // aufgehen oder das falsche Bild zentriert werden).
+        el.addEventListener("click", (e) => {
+          if (didSwipe) {
+            e.stopPropagation();
+            e.preventDefault();
+            didSwipe = false;
+          }
+        }, true);
+      }
 
       function buildWheel(yearData, yearIndex) {
         const block = document.createElement("div");
@@ -430,7 +539,7 @@
 
             if (Math.abs(diff) > 2) continue; // nur +-2 Nachbarn rendern
 
-            const layout = WHEEL_LAYOUT[diff];
+            const layout = getCurrentLayout()[diff];
             const item = document.createElement("div");
             item.className = "wheel-item" + (diff === 0 ? " is-center" : "");
             item.style.transform =
@@ -458,6 +567,10 @@
         prevBtn.addEventListener("click", () => setCenter(centerIndex - 1));
         nextBtn.addEventListener("click", () => setCenter(centerIndex + 1));
 
+        // Per Hand nach links wischen = naechstes Bild, nach rechts wischen = voriges Bild.
+        attachSwipe(wheel, () => setCenter(centerIndex + 1), () => setCenter(centerIndex - 1));
+
+        allWheelRenders.push(render);
         render();
         return block;
       }
@@ -465,6 +578,15 @@
       GALLERY_DATA.forEach((yearData, idx) => {
         container.appendChild(buildWheel(yearData, idx));
       });
+
+      // Beim Ueberschreiten der 700px-Grenze (z.B. Handydrehung, Resize)
+      // alle Wheels mit dem passenden Layout neu zeichnen.
+      mobileMedia.addEventListener("change", () => {
+        allWheelRenders.forEach((renderFn) => renderFn());
+      });
+
+      // Swipe auch in der Lightbox erlauben.
+      attachSwipe(lightbox, () => stepLightbox(1), () => stepLightbox(-1));
     </script>
   </body>
 </html>

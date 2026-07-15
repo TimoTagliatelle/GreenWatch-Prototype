@@ -205,6 +205,14 @@ main {
     justify-content: center;
     align-items: center;
   }
+  /* Bootstrap generiert .gap-5 etc. standardmaessig mit !important,
+     daher muessen wir hier ebenfalls !important setzen, sonst bleibt
+     der 48px-Abstand (gap-5) bestehen und die Nav-Punkte brechen um. */
+  .header-nav ul.d-flex {
+    gap: 14px !important;
+    row-gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
   nav ul {
     justify-content: center;
     flex-wrap: wrap;
@@ -282,10 +290,11 @@ main {
     padding: 6px 10px;
     font-size: 12px;
   }
-  .header-nav ul {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .header-nav ul.d-flex {
+    gap: 10px !important;
+    row-gap: 6px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
   .header-nav a {
     font-size: 16px;
