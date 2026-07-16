@@ -137,12 +137,16 @@ main {
   aspect-ratio: 16 / 9; 
   overflow: hidden;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
 }
 
 .video-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .video-container iframe {
@@ -166,6 +170,7 @@ main {
   
   pointer-events: none; 
   transition: background 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .video-container:hover .play-button {
